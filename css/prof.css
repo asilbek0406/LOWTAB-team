@@ -37,10 +37,6 @@ a{color:inherit;text-decoration:none}
   position:relative;width:30px;height:30px;border-radius:50%;
   background:var(--tabbar);display:flex;align-items:center;justify-content:center;
 }
-.bell-dot{
-  position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;
-  background:#2B8CFF;border:1px solid var(--tabbar);
-}
 
 /* ---------- White sheet ---------- */
 .sheet{
@@ -99,3 +95,9 @@ a{color:inherit;text-decoration:none}
   .screen{width:100%;height:100dvh;border-radius:0}
   .tabbar{border-radius:54px 54px 0 0;padding-bottom:env(safe-area-inset-bottom)}
 }
+
+/* ---------- Icons (files in /icons) ---------- */
+.back img{width:19px;height:16px;display:block}
+.bell img{width:18px;height:18px;display:block}
+.ico img{width:30px;height:30px;display:block}
+.tab img{width:28px;height:28px;display:block}
