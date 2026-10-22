@@ -1,80 +1,146 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Profile</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/prof.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00D09E">
+  <title>Profile — Finance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/prof.css">
+  <script src="JS/shared.js" defer></script>
+  <script src="JS/prof.js" defer></script>
 </head>
 <body>
-<main class="screen" aria-label="Profile">
+  <div class="page">
+    <header class="page-header prof-header">
+      <div class="topbar">
+        <a class="back-link" href="index.html" aria-label="Back">
+          <svg viewBox="0 0 19 16" width="19" height="16" aria-hidden="true"><path d="M18 8H1m0 0 7-7M1 8l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <h1>Profile</h1>
+        <div class="popover-anchor">
+          <button class="notification" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notification-panel" data-popover-trigger="notification-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <section class="popover notification-panel" id="notification-panel" role="dialog" aria-labelledby="notification-title" hidden>
+            <div class="popover-head">
+              <h2 id="notification-title">Notifications</h2>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close notifications">&times;</button>
+            </div>
+            <p class="empty-state" id="notification-text"><strong>You’re all caught up.</strong> There are no new notifications for this demo account.</p>
+          </section>
+        </div>
+      </div>
+    </header>
 
-  <header class="header">
-    <button class="back" id="backBtn" aria-label="Назад">
-      
-      <img src="./public/images/profile/icons/back.svg" alt="">
-    </button>
-    <h1 class="title">Profile</h1>
-    <button class="bell" id="bellBtn" aria-label="Уведомления">
-      
-      <img src="./public/images/profile/icons/bell.svg" alt="">
-      
-    </button>
-  </header>
+    <main class="panel prof-panel">
+      <div class="avatar">
+        <img src="public/images/profile/avatar.jpg" alt="Profile photo" width="117" height="117">
+      </div>
+      <h2 class="profile-name" id="profile-name">John Smith</h2>
+      <p class="profile-id"><b>ID:</b> 25030024</p>
 
-  <section class="sheet">
-    <div class="avatar">
-  <img id="avatar" src="public/images/profile/avatar.jpg" alt="John Smith">
-</div>
-    <h2 class="name">John Smith</h2>
-    <p class="uid"><b>ID:</b> 25030024</p>
+      <ul class="profile-menu" aria-label="Profile options">
+        <li><button class="menu-item" type="button" data-dialog="edit-dialog"><span class="menu-icon menu-icon--light"><img src="public/images/profile/icons/user.svg" alt="" width="25" height="31"></span><span class="menu-label">Edit Profile</span></button></li>
+        <li><button class="menu-item" type="button" data-dialog="security-dialog"><span class="menu-icon menu-icon--medium"><img src="public/images/profile/icons/shield.svg" alt="" width="30" height="31"></span><span class="menu-label">Security</span></button></li>
+        <li><button class="menu-item" type="button" data-dialog="settings-dialog"><span class="menu-icon menu-icon--deep"><img src="public/images/profile/icons/settings.svg" alt="" width="30" height="31"></span><span class="menu-label">Setting</span></button></li>
+        <li><button class="menu-item" type="button" data-dialog="help-dialog"><span class="menu-icon menu-icon--light"><img src="public/images/profile/icons/help.svg" alt="" width="34" height="32"></span><span class="menu-label">Help</span></button></li>
+        <li><button class="menu-item" type="button" data-dialog="logout-dialog"><span class="menu-icon menu-icon--medium"><img src="public/images/profile/icons/logout.svg" alt="" width="21" height="30"></span><span class="menu-label">Logout</span></button></li>
+      </ul>
+    </main>
 
-    <nav class="menu" aria-label="Profile menu">
-      <a class="item" href="#" data-action="edit">
-        <span class="ico c1"><img src="./public/images/profile/icons/user.svg" alt=""></span>
-        <span class="label">Edit Profile</span>
-      </a>
-      <a class="item" href="#" data-action="security">
-        <span class="ico c2"><img src="./public/images/profile/icons/shield.svg" alt=""></span>
-        <span class="label">Security</span>
-      </a>
-      <a class="item" href="#" data-action="settings">
-        <span class="ico c3"><img src="./public/images/profile/icons/settings.svg" alt=""></span>
-        <span class="label">Setting</span>
-      </a>
-      <a class="item" href="#" data-action="help">
-        <span class="ico c4"><img src="./public/images/profile/icons/help.svg" alt=""></span>
-        <span class="label">Help</span>
-      </a>
-      <a class="item" href="#" data-action="logout">
-        <span class="ico c5"><img src="./public/images/profile/icons/logout.svg" alt=""></span>
-        <span class="label">Logout</span>
-      </a>
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-item" aria-label="Home"><img src="public/icons/Vector-7.svg" alt="" width="31" height="31"></a>
+      <a href="daily.html" class="nav-item" aria-label="Analysis"><img src="public/icons/Vector-8.svg" alt="" width="31" height="31"></a>
+      <a href="tranact.html" class="nav-item" aria-label="Transactions"><img src="public/icons/Vector-9.svg" alt="" width="31" height="31"></a>
+      <a href="categ.html" class="nav-item" aria-label="Categories"><img src="public/icons/Vector-10.svg" alt="" width="31" height="31"></a>
+      <a href="prof.html" class="nav-item nav-item--active" aria-label="Profile" aria-current="page"><img src="public/icons/Vector-11.svg" alt="" width="31" height="31"></a>
     </nav>
-  </section>
 
-  <footer class="tabbar" id="tabbar">
-    <button class="tab" data-tab="home" aria-label="Home">
-      <img src="./public/icons/Vector-7.svg" alt="">
-    </button>
-    <button class="tab" data-tab="analytics" aria-label="Analytics">
-      <img src="./public/icons/Vector-8.svg" alt="">
-    </button>
-    <button class="tab" data-tab="transfer" aria-label="Transfer">
-      <img src="./public/icons/Vector-9.svg" alt="">
-    </button>
-    <button class="tab" data-tab="cards" aria-label="Cards">
-      <img src="./public/icons/Vector-10.svg" alt="">
-    </button>
-    <button class="tab active" data-tab="profile" aria-label="Profile">
-      <img src="./public/icons/Vector-11.svg" alt="">
-    </button>
-  </footer>
+    <!-- Edit Profile -->
+    <dialog class="modal" id="edit-dialog" aria-labelledby="edit-title">
+      <form class="edit-form" novalidate>
+        <div class="popover-head">
+          <h2 id="edit-title">Edit Profile</h2>
+          <button class="popover-close" type="button" data-dialog-close aria-label="Close edit profile">&times;</button>
+        </div>
+        <label class="field-label" for="edit-name">Display name</label>
+        <input class="field" id="edit-name" type="text" maxlength="24" autocomplete="off" required aria-describedby="edit-error">
+        <p class="form-error" id="edit-error" role="alert"></p>
+        <p class="popover-note">Saved in this browser only.</p>
+        <div class="popover-actions">
+          <button type="button" class="btn btn-ghost" data-dialog-close>Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
 
-</main>
-<script src="./JS/prof.js"></script>
+    <!-- Security -->
+    <dialog class="modal" id="security-dialog" aria-labelledby="security-title">
+      <div class="popover-head">
+        <h2 id="security-title">Security</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Close security">&times;</button>
+      </div>
+      <p class="empty-state"><strong>No security settings in this demo.</strong> This dashboard isn’t connected to a bank account, so there is no password, PIN or login to manage here.</p>
+      <div class="popover-actions">
+        <button type="button" class="btn btn-primary" data-dialog-close>OK</button>
+      </div>
+    </dialog>
+
+    <!-- Setting -->
+    <dialog class="modal" id="settings-dialog" aria-labelledby="settings-title">
+      <form class="settings-form" novalidate>
+        <div class="popover-head">
+          <h2 id="settings-title">Setting</h2>
+          <button class="popover-close" type="button" data-dialog-close aria-label="Close settings">&times;</button>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="setting-notifications">
+          <span class="toggle-text">Notifications<small>Show demo reminders under the bell</small></span>
+          <span class="toggle-switch" aria-hidden="true"></span>
+        </label>
+        <p class="popover-note">Saved in this browser only.</p>
+        <div class="popover-actions">
+          <button type="button" class="btn btn-ghost" data-dialog-close>Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Help -->
+    <dialog class="modal" id="help-dialog" aria-labelledby="help-title">
+      <div class="popover-head">
+        <h2 id="help-title">Help</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Close help">&times;</button>
+      </div>
+      <ul class="help-list">
+        <li><b>Analysis</b> — switch Daily / Weekly / Monthly / Year to change the chart.</li>
+        <li><b>Transactions</b> — tap Income or Expense to filter, or use the calendar.</li>
+        <li><b>Categories</b> — tap a category to see its spending; “More” adds your own.</li>
+        <li>All figures are demo data, not real bank records.</li>
+      </ul>
+      <div class="popover-actions">
+        <button type="button" class="btn btn-primary" data-dialog-close>Got it</button>
+      </div>
+    </dialog>
+
+    <!-- Logout -->
+    <dialog class="modal" id="logout-dialog" aria-labelledby="logout-title">
+      <div class="popover-head">
+        <h2 id="logout-title">Logout</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Cancel logout">&times;</button>
+      </div>
+      <p class="empty-state">End the demo session? Your saved name, settings and custom categories will be cleared from this browser and you’ll return to Home.</p>
+      <div class="popover-actions">
+        <button type="button" class="btn btn-ghost" data-dialog-close>Cancel</button>
+        <button type="button" class="btn btn-primary" id="logout-confirm">Logout</button>
+      </div>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
 </body>
 </html>
