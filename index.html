@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00D09E">
+  <title>Finance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=League+Spartan:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/index.js" defer></script>
+</head>
+<body>
+  <main class="dashboard" aria-label="Personal finance dashboard">
+    <header class="welcome">
+      <div>
+        <h1>Hi, Welcome Back</h1>
+        <p>Good Morning</p>
+      </div>
+      <button class="notification" type="button" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </header>
+
+    <section class="totals" id="analysis" aria-label="Balance and expenses">
+      <div class="total-item balance">
+        <div class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon-svg income-arrow"><span>Total Balance</span></div>
+        <strong>$7,783.00</strong>
+      </div>
+      <div class="totals-divider"></div>
+      <div class="total-item expense">
+        <div class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon-svg expense-arrow"><span>Total Expense</span></div>
+        <strong>-$1.187.40</strong>
+      </div>
+    </section>
+
+    <section class="budget" aria-label="Budget progress">
+      <div class="budget-track"><span class="budget-progress"></span><span class="budget-percent">30%</span><span class="budget-limit">$20,000.00</span></div>
+      <p class="budget-note"><img src="public/icons/check.svg" alt="" class="check-icon-svg">30% Of Your Expenses, Looks Good.</p>
+    </section>
+
+    <section class="content-panel">
+      <section class="savings-card" aria-label="Savings and weekly summary">
+        <div class="savings-goal">
+          <div class="goal-ring">
+            <img src="public/icons/Vector-6.svg" alt="" class="original-car-icon">
+          </div>
+          <p>Savings<br>On Goals</p>
+        </div>
+        <div class="card-divider"></div>
+        <div class="weekly-summary">
+          <div class="summary-row">
+            <img class="stack-icon original-icon" src="public/icons/Vector-5.svg" alt="">
+            <div><span>Revenue Last Week</span><strong>$4.000.00</strong></div>
+          </div>
+          <div class="summary-separator"></div>
+          <div class="summary-row">
+            <img class="food-icon original-icon" src="public/icons/Vector-4.svg" alt="">
+            <div><span>Food Last Week</span><strong class="negative">-$100.00</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="period-switch" role="tablist" aria-label="Transaction period">
+        <button type="button" role="tab" aria-selected="false" data-period="Daily">Daily</button>
+        <button type="button" role="tab" aria-selected="false" data-period="Weekly">Weekly</button>
+        <button type="button" role="tab" aria-selected="true" data-period="Monthly" class="active">Monthly</button>
+      </div>
+
+      <section class="transactions" id="transactions" aria-label="Recent transactions">
+        <article class="transaction">
+          <div class="transaction-icon salary-icon"><img src="public/icons/Vector.svg" alt="" class="transaction-original-icon salary-original-icon"></div>
+          <div class="transaction-main"><h2>Salary</h2><p>18:27 - April 30</p></div>
+          <span class="transaction-category">Monthly</span>
+          <strong class="transaction-amount positive">$4.000,00</strong>
+        </article>
+        <article class="transaction">
+          <div class="transaction-icon grocery-icon"><img src="public/icons/Vector-1.svg" alt="" class="transaction-original-icon grocery-original-icon"></div>
+          <div class="transaction-main"><h2>Groceries</h2><p>17:00 - April 24</p></div>
+          <span class="transaction-category">Pantry</span>
+          <strong class="transaction-amount negative">-$100,00</strong>
+        </article>
+        <article class="transaction">
+          <div class="transaction-icon rent-icon"><img src="public/icons/Rent.svg" alt="" class="transaction-original-icon rent-original-icon"></div>
+          <div class="transaction-main"><h2>Rent</h2><p>8:30 - April 15</p></div>
+          <span class="transaction-category">Rent</span>
+          <strong class="transaction-amount negative">-$674,40</strong>
+        </article>
+      </section>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-item selected" aria-label="Home" aria-current="page">
+        <span class="nav-highlight"><img src="public/icons/Vector-7.svg" alt="" class="original-nav-icon"></span>
+      </a>
+      <a href="daily.html" class="nav-item" aria-label="Analysis"><img src="public/icons/Vector-8.svg" alt="" class="original-nav-icon"></a>
+      <a href="tranact.html" class="nav-item" aria-label="Transactions"><img src="public/icons/Vector-9.svg" alt="" class="original-nav-icon"></a>
+      <a href="categ.html" class="nav-item" aria-label="Categories"><img src="public/icons/Vector-10.svg" alt="" class="original-nav-icon"></a>
+      <a href="prof.html" class="nav-item" aria-label="Profile"><img src="public/icons/Vector-11.svg" alt="" class="original-nav-icon"></a>
+    </nav>
+    <div class="interaction-toast" role="status" aria-live="polite" hidden></div>
+  </main>
+</body>
+</html>

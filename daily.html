@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00D09E">
+  <title>Analysis — Finance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/daily.css">
+  <script src="js/daily.js" defer></script>
+</head>
+<body>
+  <div class="analysis">
+    <header class="analysis-header">
+      <div class="topbar">
+        <a class="back-link" href="index.html" aria-label="Back">
+          <svg viewBox="0 0 19 16" width="19" height="16" aria-hidden="true"><path d="M18 8H1m0 0 7-7M1 8l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <h1>Analysis</h1>
+        <div class="popover-anchor">
+          <button class="notification" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notification-panel" data-popover-trigger="notification-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <section class="popover notification-panel" id="notification-panel" role="dialog" aria-labelledby="notification-title" hidden>
+            <div class="popover-head">
+              <h2 id="notification-title">Notifications</h2>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close notifications">&times;</button>
+            </div>
+            <p class="empty-state"><strong>You’re all caught up.</strong> There are no new notifications for this demo account.</p>
+          </section>
+        </div>
+      </div>
+
+      <section class="totals" aria-label="Balance and expenses">
+        <div class="total-item">
+          <p class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon"><span>Total Balance</span></p>
+          <strong class="total-value balance-value">$7,783.00</strong>
+        </div>
+        <span class="totals-divider" aria-hidden="true"></span>
+        <div class="total-item">
+          <p class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon tiny-icon--down"><span>Total Expense</span></p>
+          <strong class="total-value expense-value">-$1,187.40</strong>
+        </div>
+      </section>
+
+      <section class="budget" aria-label="Budget progress">
+        <div class="budget-track" role="img" aria-label="30% of the $20,000.00 budget used">
+          <span class="budget-fill"></span>
+          <span class="budget-percent">30%</span>
+          <span class="budget-limit">$20,000.00</span>
+        </div>
+        <p class="budget-note"><img src="public/icons/check.svg" alt="" class="check-icon">30% Of Your Expenses, Looks Good.</p>
+      </section>
+    </header>
+
+    <main class="panel">
+      <div class="period-switch" role="radiogroup" aria-label="Chart period">
+        <button type="button" role="radio" aria-checked="true" data-period="daily" class="active">Daily</button>
+        <button type="button" role="radio" aria-checked="false" data-period="weekly">Weekly</button>
+        <button type="button" role="radio" aria-checked="false" data-period="monthly">Monthly</button>
+        <button type="button" role="radio" aria-checked="false" data-period="year">Year</button>
+      </div>
+
+      <section class="chart-card" aria-labelledby="chart-title">
+        <h2 class="chart-title" id="chart-title">Income &amp; Expenses</h2>
+        <p class="sr-only" id="chart-range" aria-live="polite">Daily, Oct 19 – 25, 2026 (demo data)</p>
+
+        <div class="popover-anchor chart-tools">
+          <button class="chart-tool" type="button" aria-label="Search chart data" aria-expanded="false" aria-controls="search-panel" data-popover-trigger="search-panel">
+            <img src="public/icons/analysis/Vector.svg" alt="" width="18" height="18">
+          </button>
+          <button class="chart-tool" type="button" aria-label="Choose period and date" aria-expanded="false" aria-controls="calendar-panel" data-popover-trigger="calendar-panel">
+            <img src="public/icons/analysis/Vector-1.svg" alt="" width="20" height="18">
+          </button>
+
+          <section class="popover chart-popover" id="search-panel" role="dialog" aria-labelledby="search-title" hidden>
+            <div class="popover-head">
+              <h3 id="search-title">Search chart</h3>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close search">&times;</button>
+            </div>
+            <label class="field-label" for="chart-search">Day, month or amount</label>
+            <input class="field" id="chart-search" type="search" placeholder="e.g. Fri or 620" autocomplete="off">
+            <ul class="search-results" id="search-results" aria-live="polite"></ul>
+            <p class="popover-note">Demo data · not real bank records</p>
+          </section>
+
+          <section class="popover chart-popover" id="calendar-panel" role="dialog" aria-labelledby="calendar-title" hidden>
+            <form class="calendar-form" novalidate>
+              <div class="popover-head">
+                <h3 id="calendar-title">Choose date</h3>
+                <button class="popover-close" type="button" data-popover-close aria-label="Close date picker">&times;</button>
+              </div>
+              <fieldset class="period-options">
+                <legend class="field-label">Period</legend>
+                <label><input type="radio" name="calendar-period" value="daily"><span>Daily</span></label>
+                <label><input type="radio" name="calendar-period" value="weekly"><span>Weekly</span></label>
+                <label><input type="radio" name="calendar-period" value="monthly"><span>Monthly</span></label>
+                <label><input type="radio" name="calendar-period" value="year"><span>Year</span></label>
+              </fieldset>
+              <label class="field-label" for="calendar-date">Date</label>
+              <input class="field" id="calendar-date" type="date" required aria-describedby="calendar-hint calendar-error">
+              <p class="popover-note" id="calendar-hint"></p>
+              <p class="form-error" id="calendar-error" role="alert"></p>
+              <div class="popover-actions">
+                <button type="button" class="btn btn-ghost" data-popover-close>Cancel</button>
+                <button type="submit" class="btn btn-primary">Apply</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div class="chart">
+          <ol class="y-axis" aria-hidden="true">
+            <li>1.6k</li><li>1.2k</li><li>800</li><li>400</li>
+          </ol>
+          <span class="baseline" aria-hidden="true"></span>
+          <ul class="chart-groups" id="chart-groups" aria-label="Income and expenses by period">
+            <!-- Rendered from the selected dataset in js/daily.js -->
+          </ul>
+        </div>
+      </section>
+
+      <section class="summary" aria-label="Period totals">
+        <div class="summary-item">
+          <span class="summary-icon">
+            <img src="public/icons/analysis/Rectangle 31.svg" alt="" class="summary-frame">
+            <img src="public/icons/analysis/Arrow 1.svg" alt="" class="summary-arrow">
+          </span>
+          <span class="summary-label">Income</span>
+          <strong class="summary-value" id="income-total">$4,120.00</strong>
+        </div>
+        <div class="summary-item summary-item--expense">
+          <span class="summary-icon">
+            <span class="summary-frame summary-frame--blue" aria-hidden="true"></span>
+            <img src="public/icons/analysis/Arrow 1-1.svg" alt="" class="summary-arrow">
+          </span>
+          <span class="summary-label">Expense</span>
+          <strong class="summary-value" id="expense-total">$1,187.40</strong>
+        </div>
+      </section>
+
+      <section class="targets" aria-labelledby="targets-title">
+        <h2 class="targets-title" id="targets-title">My Targets</h2>
+        <div class="target-list">
+          <button class="target-card" type="button" data-target="travel" aria-haspopup="dialog">
+            <svg class="target-ring" viewBox="0 0 104 104" aria-hidden="true">
+              <circle class="ring-track" cx="52" cy="52" r="50.08"/>
+              <circle class="ring-progress" cx="52" cy="52" r="50.08" pathLength="100" style="--progress: 30"/>
+            </svg>
+            <span class="target-percent">30%</span>
+            <span class="target-name">Travel</span>
+          </button>
+          <button class="target-card" type="button" data-target="car" aria-haspopup="dialog">
+            <svg class="target-ring" viewBox="0 0 104 104" aria-hidden="true">
+              <circle class="ring-track" cx="52" cy="52" r="50.08"/>
+              <circle class="ring-progress" cx="52" cy="52" r="50.08" pathLength="100" style="--progress: 50"/>
+            </svg>
+            <span class="target-percent">50%</span>
+            <span class="target-name">Car</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-item" aria-label="Home"><img src="public/icons/Vector-7.svg" alt="" width="31" height="31"></a>
+      <a href="daily.html" class="nav-item nav-item--active" aria-label="Analysis" aria-current="page"><img src="public/icons/Vector-8.svg" alt="" width="31" height="31"></a>
+      <a href="tranact.html" class="nav-item" aria-label="Transactions"><img src="public/icons/Vector-9.svg" alt="" width="31" height="31"></a>
+      <a href="categ.html" class="nav-item" aria-label="Categories"><img src="public/icons/Vector-10.svg" alt="" width="31" height="31"></a>
+      <a href="prof.html" class="nav-item" aria-label="Profile"><img src="public/icons/Vector-11.svg" alt="" width="31" height="31"></a>
+    </nav>
+
+    <dialog class="target-dialog" id="target-dialog" aria-labelledby="target-dialog-title">
+      <div class="popover-head">
+        <h2 id="target-dialog-title">Target</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Close target details">&times;</button>
+      </div>
+      <div class="dialog-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="target-dialog-title"><span></span></div>
+      <dl class="dialog-stats">
+        <div><dt>Progress</dt><dd id="target-progress">0%</dd></div>
+        <div><dt>Saved</dt><dd id="target-saved">$0.00</dd></div>
+        <div><dt>Goal</dt><dd id="target-goal">$0.00</dd></div>
+        <div><dt>Remaining</dt><dd id="target-remaining">$0.00</dd></div>
+      </dl>
+      <p class="popover-note" id="target-note"></p>
+      <div class="popover-actions">
+        <button type="button" class="btn btn-primary" data-dialog-close>Close</button>
+      </div>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+</body>
+</html>
