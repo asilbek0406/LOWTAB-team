@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./css/prof.css">
 </head>
 <body>
 <main class="screen" aria-label="Profile">
@@ -20,13 +20,15 @@
     <h1 class="title">Profile</h1>
     <button class="bell" id="bellBtn" aria-label="Уведомления">
       
-      <img src="icons/bell.svg" alt="">
+      <img src="./public/images/profile/icons/bell.svg" alt="">
       
     </button>
   </header>
 
   <section class="sheet">
-    <img class="avatar" id="avatar" src="avatar.jpg" alt="John Smith" width="117" height="117">
+    <div class="avatar">
+  <img id="avatar" src="public/images/profile/avatar.jpg" alt="John Smith">
+</div>
     <h2 class="name">John Smith</h2>
     <p class="uid"><b>ID:</b> 25030024</p>
 
@@ -73,6 +75,6 @@
   </footer>
 
 </main>
-<script src="script.js"></script>
+<script src="./JS/prof.js"></script>
 </body>
 </html>
