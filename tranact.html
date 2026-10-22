@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00D09E">
+  <title>Transactions — Finance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/tranact.css">
+  <script src="JS/shared.js" defer></script>
+  <script src="JS/tranact.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header tx-header">
+      <div class="topbar">
+        <a class="back-link" href="index.html" aria-label="Back">
+          <svg viewBox="0 0 19 16" width="19" height="16" aria-hidden="true"><path d="M18 8H1m0 0 7-7M1 8l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <h1>Transaction</h1>
+        <div class="popover-anchor">
+          <button class="notification" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notification-panel" data-popover-trigger="notification-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <section class="popover notification-panel" id="notification-panel" role="dialog" aria-labelledby="notification-title" hidden>
+            <div class="popover-head">
+              <h2 id="notification-title">Notifications</h2>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close notifications">&times;</button>
+            </div>
+            <p class="empty-state"><strong>You’re all caught up.</strong> There are no new notifications for this demo account.</p>
+          </section>
+        </div>
+      </div>
+
+      <section class="balance-card" aria-label="Total balance">
+        <p class="balance-label">Total Balance</p>
+        <strong class="balance-value">$7,783.00</strong>
+      </section>
+
+      <div class="flow-cards" role="group" aria-label="Filter transactions by type">
+        <button class="flow-card" type="button" data-type="income" aria-pressed="false">
+          <span class="flow-icon">
+            <img src="public/icons/analysis/Rectangle 31.svg" alt="" class="flow-frame">
+            <img src="public/icons/analysis/Arrow 1.svg" alt="" class="flow-arrow">
+          </span>
+          <span class="flow-label">Income</span>
+          <strong class="flow-value">$4,120.00</strong>
+        </button>
+        <button class="flow-card flow-card--expense" type="button" data-type="expense" aria-pressed="false">
+          <span class="flow-icon">
+            <span class="flow-frame flow-frame--blue" aria-hidden="true"></span>
+            <img src="public/icons/analysis/Arrow 1-1.svg" alt="" class="flow-arrow">
+          </span>
+          <span class="flow-label">Expense</span>
+          <strong class="flow-value">$1.187.40</strong>
+        </button>
+      </div>
+    </header>
+
+    <main class="panel tx-panel">
+      <div class="tx-toolbar popover-anchor">
+        <button class="icon-button calendar-button" type="button" aria-label="Filter by month or date" aria-expanded="false" aria-controls="calendar-panel" data-popover-trigger="calendar-panel">
+          <img src="public/icons/analysis/Vector-1.svg" alt="" width="20" height="18">
+        </button>
+        <section class="popover calendar-popover" id="calendar-panel" role="dialog" aria-labelledby="calendar-title" hidden>
+          <form class="calendar-form" novalidate>
+            <div class="popover-head">
+              <h3 id="calendar-title">Filter transactions</h3>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close filter">&times;</button>
+            </div>
+            <fieldset class="chip-options">
+              <legend class="field-label">Month</legend>
+              <label><input type="radio" name="filter-month" value="all"><span>All</span></label>
+              <label><input type="radio" name="filter-month" value="2026-04"><span>April</span></label>
+              <label><input type="radio" name="filter-month" value="2026-03"><span>March</span></label>
+            </fieldset>
+            <label class="field-label" for="filter-date">Exact date (optional)</label>
+            <input class="field" id="filter-date" type="date" min="2026-03-01" max="2026-04-30" aria-describedby="filter-error">
+            <p class="form-error" id="filter-error" role="alert"></p>
+            <p class="popover-note">Demo data · March – April 2026</p>
+            <div class="popover-actions">
+              <button type="button" class="btn btn-ghost btn-ghost--left" data-filter-reset>Reset</button>
+              <button type="button" class="btn btn-ghost" data-popover-close>Cancel</button>
+              <button type="submit" class="btn btn-primary">Apply</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div class="tx-groups" id="tx-groups" aria-live="polite">
+        <!-- Rendered from FinanceDemo.TRANSACTIONS in js/tranact.js -->
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-item" aria-label="Home"><img src="public/icons/Vector-7.svg" alt="" width="31" height="31"></a>
+      <a href="daily.html" class="nav-item" aria-label="Analysis"><img src="public/icons/Vector-8.svg" alt="" width="31" height="31"></a>
+      <a href="tranact.html" class="nav-item nav-item--active" aria-label="Transactions" aria-current="page"><img src="public/icons/Vector-9.svg" alt="" width="31" height="31"></a>
+      <a href="categ.html" class="nav-item" aria-label="Categories"><img src="public/icons/Vector-10.svg" alt="" width="31" height="31"></a>
+      <a href="prof.html" class="nav-item" aria-label="Profile"><img src="public/icons/Vector-11.svg" alt="" width="31" height="31"></a>
+    </nav>
+
+    <dialog class="modal" id="tx-dialog" aria-labelledby="tx-dialog-title">
+      <div class="popover-head">
+        <h2 id="tx-dialog-title">Transaction</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Close transaction details">&times;</button>
+      </div>
+      <dl class="detail-grid">
+        <div><dt>Amount</dt><dd id="tx-amount"></dd></div>
+        <div><dt>Type</dt><dd id="tx-type"></dd></div>
+        <div><dt>Category</dt><dd id="tx-category"></dd></div>
+        <div><dt>Date</dt><dd id="tx-date"></dd></div>
+      </dl>
+      <p class="popover-note">Demo transaction — not a real bank record.</p>
+      <div class="popover-actions">
+        <button type="button" class="btn btn-primary" data-dialog-close>Close</button>
+      </div>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+</body>
+</html>

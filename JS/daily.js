@@ -63,6 +63,8 @@ const COUNTER_DURATION = 500;
 const NICE_STEPS = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10];
 
 const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+// Expense totals use the design's notation with dot grouping ("$1.187.40"), as on the Home page.
+const formatTotal = { income: (value) => money.format(value), expense: (value) => money.format(value).replace(/,/g, ".") };
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 // ---------- Pure helpers ----------
@@ -129,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const finish = () => {
       cancelAnimationFrame(counterFrames[key]);
       state.displayed[key] = target;
-      element.textContent = money.format(target);
+      element.textContent = formatTotal[key](target);
     };
     if (reducedMotion.matches || from === target) { finish(); return; }
     const start = performance.now();
@@ -138,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (progress >= 1) { finish(); return; }
       const eased = 1 - (1 - progress) ** 3;
       state.displayed[key] = from + (target - from) * eased;
-      element.textContent = money.format(state.displayed[key]);
+      element.textContent = formatTotal[key](state.displayed[key]);
       counterFrames[key] = requestAnimationFrame(tick);
     };
     counterFrames[key] = requestAnimationFrame(tick);

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00D09E">
+  <title>Categories — Finance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/categ.css">
+  <script src="JS/shared.js" defer></script>
+  <script src="JS/categ.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header cat-header">
+      <div class="topbar">
+        <a class="back-link" href="index.html" aria-label="Back">
+          <svg viewBox="0 0 19 16" width="19" height="16" aria-hidden="true"><path d="M18 8H1m0 0 7-7M1 8l7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <h1>Categories</h1>
+        <div class="popover-anchor">
+          <button class="notification" type="button" aria-label="Notifications" aria-expanded="false" aria-controls="notification-panel" data-popover-trigger="notification-panel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <section class="popover notification-panel" id="notification-panel" role="dialog" aria-labelledby="notification-title" hidden>
+            <div class="popover-head">
+              <h2 id="notification-title">Notifications</h2>
+              <button class="popover-close" type="button" data-popover-close aria-label="Close notifications">&times;</button>
+            </div>
+            <p class="empty-state"><strong>You’re all caught up.</strong> There are no new notifications for this demo account.</p>
+          </section>
+        </div>
+      </div>
+
+      <section class="totals" aria-label="Balance and expenses">
+        <div class="total-item">
+          <p class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon"><span>Total Balance</span></p>
+          <strong class="total-value balance-value">$7,783.00</strong>
+        </div>
+        <span class="totals-divider" aria-hidden="true"></span>
+        <div class="total-item">
+          <p class="total-label"><img src="public/icons/Group 208.svg" alt="" class="tiny-icon tiny-icon--down"><span>Total Expense</span></p>
+          <strong class="total-value expense-value">-$1.187.40</strong>
+        </div>
+      </section>
+
+      <section class="budget" aria-label="Budget progress">
+        <div class="budget-track" role="img" aria-label="30% of the $20,000.00 budget used">
+          <span class="budget-fill"></span>
+          <span class="budget-percent">30%</span>
+          <span class="budget-limit">$20,000.00</span>
+        </div>
+        <p class="budget-note"><img src="public/icons/check.svg" alt="" class="check-icon">30% Of Your Expenses, Looks Good.</p>
+      </section>
+    </header>
+
+    <main class="panel cat-panel">
+      <h2 class="sr-only">Spending categories</h2>
+      <ul class="category-grid" id="category-grid">
+        <li><button class="category" type="button" data-category="food" aria-pressed="true"><span class="category-tile"><img src="public/icons/Vector-4.svg" alt="" class="cat-icon cat-icon--food is-recolored"></span><span class="category-label">Food</span></button></li>
+        <li><button class="category" type="button" data-category="transport" aria-pressed="false"><span class="category-tile"><img src="public/icons/categories/Vector.svg" alt="" class="cat-icon cat-icon--transport"></span><span class="category-label">Transport</span></button></li>
+        <li><button class="category" type="button" data-category="medicine" aria-pressed="false"><span class="category-tile"><img src="public/icons/categories/Vector-1.svg" alt="" class="cat-icon cat-icon--medicine"></span><span class="category-label">Medicine</span></button></li>
+        <li><button class="category" type="button" data-category="groceries" aria-pressed="false"><span class="category-tile"><img src="public/icons/Vector-1.svg" alt="" class="cat-icon cat-icon--groceries"></span><span class="category-label">Groceries</span></button></li>
+        <li><button class="category" type="button" data-category="rent" aria-pressed="false"><span class="category-tile"><img src="public/icons/Rent.svg" alt="" class="cat-icon cat-icon--rent"></span><span class="category-label">Rent</span></button></li>
+        <li><button class="category" type="button" data-category="gifts" aria-pressed="false"><span class="category-tile"><img src="public/icons/categories/Vector-2.svg" alt="" class="cat-icon cat-icon--gifts"></span><span class="category-label">Gifts</span></button></li>
+        <li><button class="category" type="button" data-category="savings" aria-pressed="false"><span class="category-tile"><img src="public/icons/categories/Vector-3.svg" alt="" class="cat-icon cat-icon--savings"></span><span class="category-label">Savings</span></button></li>
+        <li><button class="category" type="button" data-category="entertainment" aria-pressed="false"><span class="category-tile"><img src="public/icons/categories/Vector-4.svg" alt="" class="cat-icon cat-icon--entertainment"></span><span class="category-label">Entertainment</span></button></li>
+        <li class="more-item"><button class="category category--more" type="button" aria-haspopup="dialog" data-add-category><span class="category-tile"><span class="plus-icon" aria-hidden="true"></span></span><span class="category-label">More</span></button></li>
+      </ul>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-item" aria-label="Home"><img src="public/icons/Vector-7.svg" alt="" width="31" height="31"></a>
+      <a href="daily.html" class="nav-item" aria-label="Analysis"><img src="public/icons/Vector-8.svg" alt="" width="31" height="31"></a>
+      <a href="tranact.html" class="nav-item" aria-label="Transactions"><img src="public/icons/Vector-9.svg" alt="" width="31" height="31"></a>
+      <a href="categ.html" class="nav-item nav-item--active" aria-label="Categories" aria-current="page"><img src="public/icons/Vector-10.svg" alt="" width="31" height="31"></a>
+      <a href="prof.html" class="nav-item" aria-label="Profile"><img src="public/icons/Vector-11.svg" alt="" width="31" height="31"></a>
+    </nav>
+
+    <dialog class="modal" id="category-dialog" aria-labelledby="category-dialog-title">
+      <div class="popover-head">
+        <h2 id="category-dialog-title">Category</h2>
+        <button class="popover-close" type="button" data-dialog-close aria-label="Close category details">&times;</button>
+      </div>
+      <dl class="detail-grid">
+        <div><dt>Spent (Mar – Apr)</dt><dd id="category-total" class="is-negative"></dd></div>
+        <div><dt>Transactions</dt><dd id="category-count"></dd></div>
+      </dl>
+      <ul class="category-tx" id="category-tx"></ul>
+      <p class="popover-note">Demo data — not real bank records.</p>
+      <div class="popover-actions">
+        <a class="btn btn-ghost btn-link" href="tranact.html">All transactions</a>
+        <button type="button" class="btn btn-primary" data-dialog-close>Close</button>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="add-dialog" aria-labelledby="add-dialog-title">
+      <form class="add-form" method="dialog" novalidate>
+        <div class="popover-head">
+          <h2 id="add-dialog-title">New category</h2>
+          <button class="popover-close" type="button" data-dialog-close aria-label="Cancel new category">&times;</button>
+        </div>
+        <label class="field-label" for="new-category">Name</label>
+        <input class="field" id="new-category" type="text" maxlength="16" autocomplete="off" required aria-describedby="add-error">
+        <p class="form-error" id="add-error" role="alert"></p>
+        <p class="popover-note">Saved in this browser only.</p>
+        <div class="popover-actions">
+          <button type="button" class="btn btn-ghost" data-dialog-close>Cancel</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+</body>
+</html>

@@ -74,6 +74,7 @@ h1, h2, h3, p { margin: 0; }
   color: var(--panel-green);
   border-radius: 6px;
   position: relative;
+  top: 1px; /* Figma: arrow at y 69 */
 }
 .back-link::after { content: ""; position: absolute; inset: -14px; }
 .back-link svg { display: block; overflow: visible; }
@@ -97,7 +98,7 @@ h1, h2, h3, p { margin: 0; }
   color: var(--icon-ink);
   cursor: pointer;
 }
-.notification svg { width: 20px; height: 20px; }
+.notification svg { width: 18px; height: 18px; } /* same glyph size as Home */
 
 .totals {
   width: 310px;
@@ -119,6 +120,8 @@ h1, h2, h3, p { margin: 0; }
 }
 .tiny-icon { width: 12px; height: 12px; flex: 0 0 12px; }
 .tiny-icon--down { transform: rotate(90deg); }
+.total-item:last-child .total-label { gap: 7px; }
+.total-item:last-child .total-label span { position: relative; top: 1px; } /* Figma: label at y 137 */
 .total-value {
   display: block;
   margin-top: -2px;
@@ -167,14 +170,15 @@ h1, h2, h3, p { margin: 0; }
   white-space: nowrap;
   text-transform: capitalize;
 }
-.check-icon { width: 11px; height: 11px; flex: 0 0 11px; }
+.check-icon { width: 12px; height: 12px; flex: 0 0 12px; margin-left: -0.5px; } /* check.svg is 12px incl. stroke, as on Home */
 
 /* ---------- White content panel (Figma frame 448) ---------- */
 .panel {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 282px);
-  padding: 35px max(16px, calc((100% - var(--content-width)) / 2)) 140px;
+  /* Figma content column is x 37–394 (centring 357px in 430px would give 36.5) */
+  padding: 35px max(16px, calc((100% - var(--content-width)) / 2 - .5px)) 140px max(16px, calc((100% - var(--content-width)) / 2 + .5px));
   background: var(--white);
   border-radius: 70px 70px 0 0;
 }

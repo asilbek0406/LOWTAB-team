@@ -1,0 +1,161 @@
+/* tranact.css — styles for tranact.html (Transactions) only; shared parts live in shared.css */
+
+/* ---------- Green header (Figma 0–333px) ---------- */
+.tx-header { height: 333px; }
+/* Figma frame 25: title centred on the page (x 215.5), top 64 */
+.tx-header .topbar h1 { position: relative; top: -1px; margin-left: 10px; }
+.balance-card, .flow-cards {
+  width: min(var(--content-width), calc(100% - 32px));
+  margin-left: max(16px, calc((100% - var(--content-width)) / 2 + .5px));
+}
+.balance-card {
+  height: 75px;
+  margin-top: 26px;
+  padding-top: 11px;
+  border-radius: 14px;
+  background: var(--panel-green);
+  color: var(--icon-ink);
+  text-align: center;
+}
+.balance-label { font-size: 15px; font-weight: 500; line-height: 23px; text-transform: capitalize; }
+.balance-value { display: block; font-size: 24px; font-weight: 700; line-height: 36px; }
+
+.flow-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 17px;
+}
+.flow-card {
+  height: 101px;
+  padding: 16px 4px 0;
+  border: 0;
+  border-radius: 14.89px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--panel-green);
+  color: var(--icon-ink);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, filter .15s ease;
+}
+.flow-card:hover { filter: brightness(.98); }
+.flow-card:active { transform: scale(.97); }
+.flow-card[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--icon-ink); }
+.flow-card--expense[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--blue); }
+.flow-icon { position: relative; width: 25px; height: 25px; flex: 0 0 25px; }
+.flow-frame { position: absolute; inset: 0; width: 25px; height: 25px; }
+/* Same geometry as Rectangle 31.svg, in blue (a CSS mask would be blocked on file://). */
+.flow-frame--blue { border: 2.08333px solid var(--blue); border-radius: 6.25px; }
+.flow-arrow { position: absolute; top: 5.2px; left: 5.2px; width: 15px; height: 15px; }
+.flow-label { margin-top: 3px; font-size: 15px; font-weight: 500; line-height: 22px; text-transform: capitalize; }
+.flow-value { font-size: 20px; font-weight: 600; line-height: 22px; white-space: nowrap; }
+.flow-card--expense { padding-top: 15px; }
+.flow-card--expense .flow-label { margin-top: 4px; }
+.flow-card--expense .flow-value { margin-top: 1px; color: var(--blue); }
+
+/* ---------- Transactions list ---------- */
+.tx-panel { padding-top: 27px; }
+.tx-toolbar { height: 0; }
+.calendar-button { position: absolute; z-index: 2; top: -1px; right: 0; }
+.calendar-popover { top: 38px; right: 0; width: 290px; }
+
+.tx-group + .tx-group { margin-top: 32px; }
+.tx-month {
+  height: 23px;
+  padding-right: 44px;
+  color: var(--icon-ink);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 23px;
+  text-transform: capitalize;
+}
+.tx-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; row-gap: 19px; }
+/* Figma: March list starts 18px under its heading, rows 26px apart */
+.tx-group + .tx-group .tx-list { margin-top: 18px; row-gap: 26px; }
+
+.tx-row {
+  width: 100%;
+  height: 53px;
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  display: grid;
+  grid-template-columns: 57px minmax(0, 1fr) 1px 93px 1px 83px;
+  align-items: start; /* vertical offsets below follow the Figma rows */
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .15s ease, background-color .2s ease;
+}
+.tx-row:hover { background: rgba(0, 208, 158, .08); }
+.tx-row:active { transform: scale(.99); }
+
+.tx-icon {
+  width: 57px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+}
+.tx-icon--light { background: var(--light-blue); }
+.tx-icon--medium { background: var(--medium-blue); }
+.tx-icon--deep { background: var(--blue); }
+.tx-icon img { display: block; }
+/* Vector-4 (fork & knife) is drawn in #093030; turn it light like the other list icons. */
+.tx-icon img.is-recolored { filter: brightness(0) invert(1); }
+
+.tx-row {
+  --name-top: 3px;
+  --line-top: 10.1px;
+  --category-top: 23.3px;
+  --amount-top: 17px;
+}
+.tx-row[data-id="salary-apr"] { --name-top: 0px; --line-top: 8.1px; --category-top: 22px; --amount-top: 17px; }
+.tx-row[data-id="groceries-apr"] { --name-top: 3px; --line-top: 11.1px; --category-top: 24.3px; --amount-top: 25px; }
+.tx-row[data-id="rent-apr"] { --name-top: 5px; --line-top: 13.1px; --category-top: 26.3px; --amount-top: 21px; }
+.tx-row[data-id="transport-apr"] { --name-top: 2px; --line-top: 10.1px; --category-top: 23.3px; --amount-top: 12px; }
+.tx-row[data-id="food-mar"] { --name-top: 1px; --line-top: 10.1px; --category-top: 23.3px; --amount-top: 17px; }
+.tx-row[data-id="salary-mar"] { --name-top: 6px; --line-top: 13.1px; --category-top: 25.3px; --amount-top: 25px; }
+.tx-main { min-width: 0; padding: 0 8px 0 15px; margin-top: var(--name-top); }
+.tx-name { display: block; font-size: 15px; font-weight: 500; line-height: 22px; text-transform: capitalize; }
+.tx-date {
+  display: block;
+  margin-top: 3.35px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+.tx-divider { width: 1px; height: 35.5px; margin-top: var(--line-top); background: var(--main-green); }
+.tx-category { margin-top: var(--category-top); font-size: 13px; font-weight: 300; line-height: 15px; text-align: center; }
+.tx-amount {
+  margin-top: var(--amount-top);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: right;
+  white-space: nowrap;
+}
+.tx-amount.is-negative { color: var(--blue); }
+
+.tx-empty { margin-top: 48px; color: var(--icon-ink); font-size: 14px; line-height: 21px; text-align: center; }
+.tx-empty button { margin-top: 12px; }
+
+@media (max-width: 400px) {
+  .tx-row { grid-template-columns: 50px minmax(0, 1fr) 1px 70px 1px 74px; }
+  .tx-icon { width: 50px; height: 50px; border-radius: 19px; }
+  .tx-main { padding-left: 10px; }
+  .tx-name { font-size: 14px; }
+  .tx-date { font-size: 11px; }
+  .tx-category { font-size: 12px; }
+  .tx-amount { font-size: 14px; }
+  .flow-value { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-card, .tx-row { transition: none; }
+}

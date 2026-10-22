@@ -29,3 +29,11 @@ The bottom navigation links to `index.html` (Home), `daily.html` (Analysis), `tr
 - Daily / Weekly / Monthly / Year switch the chart, y-axis, and Income/Expense totals from one demo dataset per period. Totals are always the sum of the bars, and bars and counters animate (or update instantly under `prefers-reduced-motion`).
 - Search (filter by day/month or amount), Calendar (pick period + date → highlights that bucket), Notifications (empty state), Travel/Car target details dialog, Back (history back within the site, otherwise `index.html`).
 - All figures are deterministic demo data, not real bank records.
+
+## Transactions (`tranact.html`) and Categories (`categ.html`)
+- Files: `tranact.html` + `css/tranact.css` + `JS/tranact.js`, `categ.html` + `css/categ.css` + `JS/categ.js`.
+- `css/shared.css` and `JS/shared.js` hold what both pages share: header, bottom navigation (same geometry as Home), popovers, dialogs, toast, back link and the demo transaction list.
+- Transactions: the list is rendered from the demo data; the Income/Expense cards filter by type; the calendar button filters by month or exact date (Reset/Cancel/Apply); each row opens a details dialog.
+- Categories: a tile selects the category and opens its demo transactions; "More" adds a custom category (saved in this browser's localStorage).
+- `public/icons/categories/`: original Figma SVGs for Transport (`Vector.svg`), Medicine (`Vector-1.svg`), Gifts (`Vector-2.svg`), Savings (`Vector-3.svg`) and Entertainment (`Vector-4.svg`). They are in their own folder because `public/icons/` already has different files with the same names.
+- `prof.html` (Profile) belongs to a teammate.
